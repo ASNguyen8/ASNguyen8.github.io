@@ -24,3 +24,10 @@ for i in range(len(d)):
     d[i]=code[cpt]
 
 print("Message :",d)
+
+# obtenir toutes les lettres de l'alphabet :
+A = [chr(65+j) for j in range(26)]
+a = [chr(97+j) for j in range(26)]
+
+print(A)
+print(a)
