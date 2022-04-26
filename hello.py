@@ -31,3 +31,6 @@ a = [chr(97+j) for j in range(26)]
 
 print(A)
 print(a)
+
+number = 60**2.5
+print(number)
