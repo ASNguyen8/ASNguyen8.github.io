@@ -138,13 +138,13 @@
     </thead>
     <tbody>
       <?php
-        $a="SELECT * FROM `depenses` order by date";
+        $a="SELECT * FROM `depenses` order by date_depense";
         $ra=$pdo->prepare($a);
         $ra->execute();
         $exp = $ra->fetchall();
         for ($i=0; $i < count($exp); $i++) {
           $sup="<td><form action=\"enr.php\" method=\"post\"><input type=\"hidden\" name=\"one\" value=".$exp[$i]['somme']."\"><input type=\"submit\" value=\"Suppr\"></form></td>";
-          echo "<tr><td>".$exp[$i]['somme']."€</td><td>".$exp[$i]['date']."</td>".$sup."</tr>";
+          echo "<tr><td>".$exp[$i]['somme']."€</td><td>".$exp[$i]['date_depense']."</td>".$sup."</tr>";
         }
        ?>
     </tbody>
