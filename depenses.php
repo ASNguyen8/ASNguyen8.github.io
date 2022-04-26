@@ -80,14 +80,11 @@
   $dirg = $gains->fetchall();
   $gain = $dirg[0]['g'];
 
-  $depense=0;
-  $rdep="SELECT sum(somme) FROM depenses WHERE somme<0;";
+  $rdep="SELECT sum(somme) as d FROM depenses WHERE somme<0;";
   $dep=$pdo->prepare($rdep);
   $dep->execute();
   $dird = $dep->fetchall();
-  for ($i=0; $i < count($dird); $i++) {
-    $depense = $depense+$dird[$i]['somme'];
-  }
+  $depense = $dird[0]['d'];
 
   $bilan=$gain+$depense;
   $p_bilan="";
@@ -127,7 +124,7 @@
   <p><?php echo $p_bilan; ?></p>
   <?php $debut_de_mois=908.28;
   $cc=$bilan+$debut_de_mois; ?>
-  <p>Current wealth : <b style="color:red;font-size: 36px;"><?php echo $cc."€"; ?></b></p>
+  <p>Current wealth : <b style="color:red;font-size: 36px;"><?php echo round($cc,2)."€"; ?></b></p>
 </div>
 <div>
   <h1>Finances du mois en cours:</h1>
@@ -141,7 +138,7 @@
     </thead>
     <tbody>
       <?php
-        $a="SELECT * FROM `depenses`";
+        $a="SELECT * FROM `depenses` order by date";
         $ra=$pdo->prepare($a);
         $ra->execute();
         $exp = $ra->fetchall();
