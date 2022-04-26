@@ -74,18 +74,14 @@
   }
 
 
-  $gain=0;
-
-  $rgain="SELECT * FROM depenses WHERE somme>0;";
+  $rgain="SELECT sum(somme) as g FROM depenses WHERE somme>0;";
   $gains=$pdo->prepare($rgain);
   $gains->execute();
   $dirg = $gains->fetchall();
-  for ($i=0; $i < count($dirg); $i++) {
-    $gain = $gain+$dirg[$i]['somme'];
-  }
+  $gain = $dirg[0]['g'];
 
   $depense=0;
-  $rdep="SELECT * FROM depenses WHERE somme<0;";
+  $rdep="SELECT sum(somme) FROM depenses WHERE somme<0;";
   $dep=$pdo->prepare($rdep);
   $dep->execute();
   $dird = $dep->fetchall();
