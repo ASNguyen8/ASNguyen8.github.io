@@ -131,6 +131,7 @@
   <table>
     <thead>
       <tr>
+        <td>Identifiant</td>
         <td>Somme</td>
         <td>Date</td>
         <td></td>
@@ -143,8 +144,8 @@
         $ra->execute();
         $exp = $ra->fetchall();
         for ($i=0; $i < count($exp); $i++) {
-          $sup="<td><form action=\"enr.php\" method=\"post\"><input type=\"hidden\" name=\"this_sum\" value=".$exp[$i]['somme']."\"><input type=\"hidden\" name=\"date\" value=".$exp[$i]['date_depense']."\"><input type=\"submit\" value=\"Suppr\"></form></td>";
-          echo "<tr><td>".$exp[$i]['somme']."€</td><td>".$exp[$i]['date_depense']."</td>".$sup."</tr>";
+          $sup="<td><form action=\"enr.php\" method=\"post\"><input type=\"hidden\" name=\"this_sum\" value=".$exp[$i]['id']."\"><input type=\"submit\" value=\"Suppr\"></form></td>";
+          echo "<tr><td>".$exp[$i]['id']."€</td><td>".$exp[$i]['somme']."€</td><td>".$exp[$i]['date_depense']."</td>".$sup."</tr>";
         }
        ?>
     </tbody>

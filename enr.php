@@ -40,8 +40,8 @@ if (isset($_POST['suppr'])) {
   $pdo->prepare("DELETE FROM depenses ;")->execute(array());
 }
 
-if (isset($_POST['this_sum']) and isset($_POST['date'])) {
-  $pdo->prepare("DELETE FROM depenses WHERE somme=? AND date_depense=?;")->execute(array($_POST['this_sum'] , $_POST['date']));
+if (isset($_POST['this_sum'])) {
+  $pdo->prepare("DELETE FROM depenses WHERE id=?;")->execute(array($_POST['this_sum']));
 }
 header('Location: depenses.php');
  ?>
