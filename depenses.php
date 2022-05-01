@@ -143,7 +143,7 @@
         $ra->execute();
         $exp = $ra->fetchall();
         for ($i=0; $i < count($exp); $i++) {
-          $sup="<td><form action=\"enr.php\" method=\"post\"><input type=\"hidden\" name=\"one\" value=".$exp[$i]['somme']."\"><input type=\"submit\" value=\"Suppr\"></form></td>";
+          $sup="<td><form action=\"enr.php\" method=\"post\"><input type=\"hidden\" name=\"this_sum\" value=".$exp[$i]['somme']."\"><input type=\"hidden\" name=\"date\" value=".$exp[$i]['date_depense']."\"><input type=\"submit\" value=\"Suppr\"></form></td>";
           echo "<tr><td>".$exp[$i]['somme']."€</td><td>".$exp[$i]['date_depense']."</td>".$sup."</tr>";
         }
        ?>

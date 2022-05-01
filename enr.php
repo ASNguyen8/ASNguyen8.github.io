@@ -31,7 +31,7 @@ if (isset($_POST['sum-'])){
 }
 
 if ($sum!=0) {
-  $requete="INSERT INTO depenses (somme,date) VALUES (?,NOW())";
+  $requete="INSERT INTO depenses (somme,date_depense) VALUES (?,NOW())";
   $reponse=$pdo->prepare($requete);
   $reponse->execute(array($sum));
 }
@@ -40,8 +40,8 @@ if (isset($_POST['suppr'])) {
   $pdo->prepare("DELETE FROM depenses ;")->execute(array());
 }
 
-if (isset($_POST['one'])) {
-  $pdo->prepare("DELETE FROM depenses WHERE somme=?;")->execute(array($_POST['one']));
+if (isset($_POST['this_sum']) and isset($_POST['date'])) {
+  $pdo->prepare("DELETE FROM depenses WHERE somme=? AND date_depense=?;")->execute(array($_POST['this_sum'] , $_POST['date']));
 }
 header('Location: depenses.php');
  ?>
