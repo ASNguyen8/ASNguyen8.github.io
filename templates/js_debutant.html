@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Javascript pour débutant</title>
+  </head>
+  <body>
+    <div class="beginning">
+      <h1>Bienvenue sur une page statique <code>.html</code> !</h1>
+      <h3>On va tenter de dynamiser tout cela !</h3>
+      <p>Pour cela on va utiliser <b>Javascript</b>. C'est un langage informatique qui tourne sur les navigateurs internet tel <em>Google Chrome</em>, <em>Mozilla Firefox</em> ou encore <em>Opera</em>. Ce langage s'intègre au langage HTML (qui produit des pages statiques) pour les dynamiser. Javascript peut autant être utiliser en front end (côté utilisateur) qu'en back end (côté serveur).</p>
+      <p>Il y a un script qui affiche <em>Bienvenue !</em> quand on entre sur la page. Pour voir les scripts de cette page, il suffit d'aller regarder le code source (CTRL + U).<br>Pour mettre du code du script en commentaire, il faut écrire <em>//</em> devant la ligne de code.</p>
+    </div>
+
+    <!--<p>On peut faire des range slide avec les balises <code>input</code> comme ceci :</p>
+    <br>
+    Range : <input type="range"> -->
+
+    <script>
+      var s = 'Bienvenue'
+      alert(s+" !");
+      //var a = s.length;
+      //alert(a+1)
+    </script>
+
+    <h2>Les bases de Javascript</h2>
+    <div class="left-block">
+      <h3>Variables</h3>
+      <p>Les variables se déclarent quasiment comme en Python. Javascript est un <em>loosely-typed language</em>, ce qui implique que l'on n'a pas besoin de déclarer le type (Boolean, Number, String) d'une variable lors de son initialisation. Les variables peuvent également être réinitialisées ou prendre une autre valeur d'un autre type. Par exemple, si <code>a=1</code>, on peut par la suite écrire <code>a='toto'</code>. La déclaration s'effectue ainsi (sous <a href="https://www.w3schools.com/js/js_es5.asp">ES5</a>):</p>
+      <code>var nom_variable = valeur ;</code>
+      <p>On pourra également citer d'autres façons de déclarer une variable avec</p> <code>let nom_variable = valeur ;</code>
+      <p>ou encore</p>
+      <code>const nom_variable = valeur ;</code>
+      <p>(permet de déclarer une variable qui ne pourra être modifiée par la suite). Ces deux dernières sont disponibles sous <a href="https://www.w3schools.com/js/js_es6.asp">ES6</a> </p>
+    </div>
+
+    <div class="right-block">
+      <h3>Propriétés et méthodes</h3>
+      <p>Comme en POO (Programmation Orientée Objet), il existe des méthodes et des propriétés aux objets que l'on appelle ainsi :</p>
+      <code>nom_objet.property</code>
+      <br>
+      <code>nom_objet.method(args)</code>
+      <p>sans oublier de donner les arguments <code>args</code> (paramètres) de la méthode appelée. Parmi les propriétés les plus connues, il y a <code>.length</code>. Et parmi les méthodes, on retrouve <code>.toString()</code> qui convertit un nombre ou un booléen en String.</p>
+      <p><b>L'objet <code>Math</code> :</b> <br><br>
+        <code>Math.pow(x,a)</code> retourne x à la puissance a.<br> <code>Math.round(x)</code> retourne x arrondi.<br> <code>Math.floor(x)</code> retourne x arrondi inférieurement.<br> <code>Math.pow(x,a)</code> retourne x arrondi supérieurement.</p>
+    </div>
+
+    <div class="left-block">
+      <h3>Fonctions</h3>
+      <p>Une fonction se déclare ainsi :</p>
+      <code>function myFunc(arg_1, arg_2, ..., arg_n){ instructions ; }</code>
+      <p>On peut retourner un résultat (de calcul par exemple) avec l'instruction <code>return</code>. A noter qu'on ne peut récupérer le résultat d'une fonction qu'AVEC ce return. Sinon, cela renvoie <code>undefined</code> : c'est le <em>scope</em> !<br> Javascript possède des fonctions natives telles</p><code>console.log(arg_1, arg_2, ..., arg_n)</code> <p>qui affiche dans la console (F12 sur le navigateur) les arguments arg_1, arg_2, ..., arg_n.</p>
+    </div>
+
+    <script type="text/javascript">
+      function logsHello(name){
+        console.log('Hello',name);
+      }
+      const myName = 'Alex';
+      logsHello(myName);
+
+      function calculus(a,b){
+        if (a>b) {
+          return a-b;
+        }else {
+          return b-a
+        }
+      }
+      var x = 3;
+      var y = 5 ;
+      console.log("La différence entre",x,"et",y,"vaut",calculus(x,y));
+    </script>
+
+    <div class="right-block">
+      <h3>Condition</h3>
+      <p>A l'instar des autres langages informatiques, on peut utiliser des conditions <code>if / else</code>. Cela se déclare de la façon suivante :</p>
+      <code>if(condition){
+          instruction_1 ;
+       }<br>
+       else if{
+         instruction_2 ;
+       }<br>
+     else{ instruction_3 ; } </code>
+       <p>Les opérateurs pour les comparaisons (dans le if) sont <code><</code>, <code><=</code>, <code>></code>, <code>>=</code>, <code>===</code> et <code>!==</code> (<code>==</code> et <code>!=</code> fonctionnent aussi).<br> Les opérateurs logiques sont <code>&&</code> pour le "et" et <code>||</code> pour le "ou". </p>
+    </div>
+
+    <div class="left-block">
+      <h3>Boucles</h3>
+      <p>La boucle for s'écrit de façon analogue au langage C :</p>
+      <code>for (variable ; condition ; increment) { instructions ; }</code>
+      <ul>
+        <li>variable : on initialise une variable (voir section Variables)</li>
+        <li>condition : on définit la condition d'arrêt. On peut faire une boucle infinie avec <br> <code>for( var i = 1 ; i>=0 ;...</code>, auquel cas il faudra utiliser un <code>break</code> ou un <code>return</code> pour en sortir.</li>
+        <li>increment : comment la variable va évoluer (ex : i++).</li>
+      </ul>
+    </div>
+
+    <div class="right-block">
+      <h3>Tableaux</h3>
+      <p>En Javascript, la syntaxe pour les tableaux est quasiment la même qu'en Python (<a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array">voir méthodes pour les tableaux</a>).</p>
+      <ul>
+        <li>Déclaration : <code>var fruits = ['Apple', 'Banana']</code></li>
+        <li>Obtenir la taille du tableau : <code>console.log(fruits.length) <br> // 2</code></li>
+        <li>Accéder à un élément : <code>fruits[0]; <br>// Apple</code> </li>
+        <li>Faire boucler une fonction dessus : <code>fruits.forEach(function(item, index, array) { console.log(item, index); });<br> // Apple 0 <br> // Banana 1</code></li>
+      </ul>
+    </div>
+
+    <h2>Du Javascript au HTML</h3>
+    <p>Ecrire les variables de JavaScript en HTML passe par la propriété <code>.innerHTML</code> (voir <a href="https://www.w3schools.com/jsref/dom_obj_document.asp">méthodes de l'objet Document</a>). </p>
+    <code>document.getElementById("greeting").innerHTML = "Bonjour";</code>
+    <p>Le code ci-dessus va remplacer TOUT le contenu de l'élément avec l'identifiant "greeting" par "Bonjour". Cet élément peut être un paragraphe, un span, un div ou même le body du document.</p>
+  </body>
+</html>

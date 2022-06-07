@@ -1,0 +1,41 @@
+html {
+  text-align: center;
+}
+
+body{
+  background-color: #99D9EA;
+}
+
+h3 {
+  text-decoration: underline;
+}
+
+div{
+  width: 40%;
+  display: inline-grid;
+  align-content: space-between;
+  background-color: #EFE4B0;
+  border: 3px solid black;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+  margin-bottom: 10px;
+}
+
+.beginning {
+  border: solid black 3px;
+  background-color: white;
+  width: 86%;
+}
+
+.beginning h1, h3 {
+  text-align: center;
+}
+
+p,li{
+  text-align: justify;
+}
+
+code{
+  text-align: center;
+  background-color: #E4E4E4;
+}
