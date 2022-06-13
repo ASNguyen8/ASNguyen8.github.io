@@ -6,6 +6,18 @@ body {
   background-color: steelblue;
 }
 
+footer {
+  background-color: #AA0000;
+  padding: 2%;
+  border: solid black 3px;
+}
+
+footer a {
+  border: solid black 3px;
+  padding: 2%;
+  background-color: #E4E4E4;
+}
+
 div {
   width: 50%;
   background-color: #E4E4E4;
